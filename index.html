@@ -1,1 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heritage & Grace Parlour — Funeral Cover & Family Care</title>
+  <meta name="theme-color" content="#1B3B82" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="stylesheet" href="./assets/css/tokens.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg-canvas);
+      color: var(--color-brown-ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+    }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(250, 248, 245, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-warm);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; flex-wrap: wrap; }
+    .brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 1.2rem; color: var(--color-royal); text-decoration: none; font-weight: 700; }
+    .brand-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-gold); }
+    .nav-links { display: flex; align-items: center; gap: 18px; font-size: 0.95rem; flex-wrap: wrap; }
+    .nav-links a { color: var(--color-brown-ink); text-decoration: none; }
+    .nav-links a:hover { color: var(--color-royal); }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 11px 20px; border-radius: var(--radius-pill); border: 1px solid transparent;
+      font-weight: 600; font-size: 0.95rem; cursor: pointer; text-decoration: none;
+    }
+    .btn-primary { background: var(--color-royal); color: #fff; }
+    .btn-gold { background: var(--bg-gold-soft); color: var(--color-brown-ink); border-color: var(--color-gold); }
+    .btn-outline { background: var(--bg-surface); color: var(--color-royal); border-color: var(--border-warm); }
 
+    .hero { padding: 48px 0 32px; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 28px; align-items: center; }
+    .eyebrow { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-gold); font-weight: 700; margin-bottom: 10px; }
+    h1 { font-family: var(--font-display); font-size: clamp(2.1rem, 4vw, 3.2rem); line-height: 1.15; color: var(--color-royal); margin-bottom: 16px; font-weight: 600; }
+    .hero p.lead { color: var(--color-brown-muted); font-size: 1.05rem; margin-bottom: 22px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+    .status-strip {
+      display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px;
+      border-radius: var(--radius-pill); background: var(--bg-surface); border: 1px solid var(--border-warm);
+      font-size: 0.85rem; color: var(--color-brown-muted);
+    }
+    .hero-card {
+      background: var(--bg-surface); border: 1px solid var(--border-warm);
+      border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-soft);
+    }
+    .hero-card img { width: 100%; height: 280px; object-fit: cover; display: block; background: var(--bg-subtle); }
+    .hero-card-body { padding: 18px; }
+    .step-num { font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-gold); font-weight: 700; }
+
+    section { padding: 36px 0; }
+    .section-head { margin-bottom: 20px; }
+    .section-head h2 { font-family: var(--font-display); font-size: 1.85rem; color: var(--color-royal); font-weight: 600; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .card {
+      background: var(--bg-surface); border: 1px solid var(--border-warm);
+      border-radius: var(--radius-card); padding: 22px; box-shadow: var(--shadow-soft);
+    }
+    .card img { width: 100%; height: 160px; object-fit: cover; border-radius: 14px; margin-bottom: 14px; background: var(--bg-subtle); }
+    .price { font-size: 1.5rem; font-weight: 700; color: var(--color-royal); margin: 10px 0; }
+    .price span { font-size: 0.9rem; font-weight: 400; color: var(--color-brown-muted); }
+    ul.features { list-style: none; margin: 12px 0 18px; font-size: 0.92rem; color: var(--color-brown-muted); }
+    ul.features li { padding: 4px 0; }
+
+    .inquiry-box {
+      background: var(--bg-surface); border: 1px solid var(--border-warm);
+      border-radius: var(--radius-card); padding: 26px; box-shadow: var(--shadow-soft);
+    }
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 14px; }
+    label { display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 6px; }
+    input, select, textarea {
+      width: 100%; padding: 11px 13px; border-radius: var(--radius-input);
+      border: 1px solid var(--border-warm); background: var(--bg-canvas);
+      color: var(--color-brown-ink); font-family: inherit; font-size: 0.95rem;
+    }
+    .msg-banner { margin-top: 14px; padding: 12px 16px; border-radius: 12px; font-size: 0.92rem; display: none; }
+    .msg-banner.show { display: block; background: var(--bg-gold-soft); border: 1px solid var(--color-gold); }
+
+    footer { border-top: 1px solid var(--border-warm); padding: 28px 0; margin-top: 32px; color: var(--color-brown-muted); font-size: 0.9rem; }
+
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: 1fr; padding-top: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" id="brand-link">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span id="brand-name">Heritage &amp; Grace Parlour</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#packages">Packages</a>
+        <a href="#inquiry">Inquire</a>
+        <a href="./login.html" class="btn btn-outline">Client &amp; Staff Login</a>
+        <a id="wa-header-btn" href="#" target="_blank" rel="noopener" class="btn btn-gold">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Calm Guidance • Dignified Cover</div>
+        <h1 id="hero-title">Funeral cover and family care that begins with clarity.</h1>
+        <p class="lead" id="hero-lead">
+          Clear cover options, transparent waiting periods, and compassionate support when families need it most—available even on slow or intermittent connections.
+        </p>
+        <div class="hero-actions">
+          <a href="#packages" class="btn btn-primary">View Cover Packages</a>
+          <a href="#inquiry" class="btn btn-outline">Request Callback</a>
+        </div>
+        <div class="status-strip" id="net-status">
+          <span id="net-dot">●</span>
+          <span id="net-text">Checking connection...</span>
+          <span>•</span>
+          <span id="queue-count">0 queued offline</span>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <img src="./assets/media/hero-family-support-desktop.webp" alt="Calm family consultation space" />
+        <div class="hero-card-body">
+          <div class="step-num">01 — 24/7 SUPPORT</div>
+          <p id="support-hours-text" style="font-size: 0.92rem; color: var(--color-brown-muted); margin-top: 4px;"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="packages">
+      <div class="section-head">
+        <div class="eyebrow">Transparent Plans</div>
+        <h2>Funeral Cover Packages</h2>
+      </div>
+      <div class="grid-3" id="packages-grid"></div>
+    </section>
+
+    <section id="inquiry">
+      <div class="inquiry-box">
+        <div class="eyebrow">Quick Inquiry • Works Offline</div>
+        <h2 style="font-family: var(--font-display); color: var(--color-royal); font-size: 1.7rem;">Speak With an Advisor</h2>
+        <p style="color: var(--color-brown-muted); font-size: 0.95rem; margin-top: 4px;">
+          If your internet drops, your inquiry saves safely on your device and syncs automatically once you're back online.
+        </p>
+        <form id="lead-form">
+          <div class="form-grid">
+            <div>
+              <label for="full-name">Full Name &amp; Surname</label>
+              <input id="full-name" name="fullName" type="text" required placeholder="e.g. Thabo Mokoena" />
+            </div>
+            <div>
+              <label for="phone">Phone / WhatsApp Number</label>
+              <input id="phone" name="phone" type="tel" required placeholder="e.g. 082 000 0000" />
+            </div>
+            <div>
+              <label for="package-select">Package of Interest</label>
+              <select id="package-select" name="packageId"></select>
+            </div>
+          </div>
+          <div style="margin-top: 14px;">
+            <label for="notes">Questions or Preferred Contact Time (Optional)</label>
+            <textarea id="notes" name="notes" rows="2" placeholder="Ask about dependants, waiting periods, or branch visits..."></textarea>
+          </div>
+          <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+            <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+            <a id="wa-form-btn" href="#" target="_blank" rel="noopener" class="btn btn-gold">Chat on WhatsApp</a>
+          </div>
+          <div id="form-feedback" class="msg-banner" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+      <div id="footer-address"></div>
+      <div id="footer-contact"></div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { APP_CONFIG, buildWhatsAppUrl } from "./assets/js/config.js";
+    import { enqueueInquiry, flushQueuedInquiries, countPending, initSyncListeners } from "./assets/js/pwa-queue.js";
+
+    const pkgImages = [
+      "./assets/media/pkg-dignity-essential-card.webp",
+      "./assets/media/pkg-family-sanctuary-card.webp",
+      "./assets/media/pkg-complete-legacy-card.webp"
+    ];
+
+    document.getElementById("brand-name").textContent = APP_CONFIG.brandName;
+    document.getElementById("support-hours-text").textContent = APP_CONFIG.supportHours;
+    document.getElementById("footer-address").textContent = `${APP_CONFIG.brandName} — ${APP_CONFIG.contact.address}`;
+    document.getElementById("footer-contact").textContent = `${APP_CONFIG.contact.phoneDisplay} • ${APP_CONFIG.contact.email}`;
+
+    const defaultWa = buildWhatsAppUrl(`Hello ${APP_CONFIG.brandName}, I would like information on your funeral cover packages.`);
+    document.getElementById("wa-header-btn").href = defaultWa;
+    document.getElementById("wa-form-btn").href = defaultWa;
+
+    const grid = document.getElementById("packages-grid");
+    const select = document.getElementById("package-select");
+
+    APP_CONFIG.packages.forEach((pkg, idx) => {
+      const opt = document.createElement("option");
+      opt.value = pkg.id;
+      opt.textContent = `${pkg.name} — R${pkg.monthlyPremiumZar}/mo (Cover R${pkg.coverAmountZar.toLocaleString()})`;
+      select.appendChild(opt);
+
+      const card = document.createElement("article");
+      card.className = "card";
+      card.innerHTML = `
+        <img src="${pkgImages[idx] || pkgImages[0]}" alt="${pkg.name} preview" />
+        <div class="step-num">0${idx + 1} • ${pkg.waitingPeriodMonths}-MONTH WAITING PERIOD</div>
+        <h3 style="font-family: var(--font-display); font-size: 1.3rem; color: var(--color-brown-ink); margin-top: 4px;">${pkg.name}</h3>
+        <div class="price">R${pkg.monthlyPremiumZar} <span>/ month</span></div>
+        <div style="font-size: 0.9rem; font-weight: 600; color: var(--color-brown-muted);">Cover up to R${pkg.coverAmountZar.toLocaleString()}</div>
+        <ul class="features">${pkg.highlights.map((h) => `<li>• ${h}</li>`).join("")}</ul>
+        <button type="button" class="btn btn-outline" data-pick="${pkg.id}">Select Package</button>
+      `;
+      card.querySelector("[data-pick]").addEventListener("click", () => {
+        select.value = pkg.id;
+        document.getElementById("inquiry").scrollIntoView({ behavior: "smooth" });
+      });
+      grid.appendChild(card);
+    });
+
+    const netDot = document.getElementById("net-dot");
+    const netText = document.getElementById("net-text");
+    const queueCountEl = document.getElementById("queue-count");
+
+    async function refreshStatusUI() {
+      const online = navigator.onLine;
+      netDot.style.color = online ? "#15803d" : "#b45309";
+      netText.textContent = online ? "Online" : "Offline mode";
+      const pending = await countPending();
+      queueCountEl.textContent = `${pending} queued offline`;
+    }
+
+    initSyncListeners(() => APP_CONFIG.endpoints.inquiriesUrl, refreshStatusUI);
+    window.addEventListener("offline", refreshStatusUI);
+    refreshStatusUI();
+
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js")
+          .then(() => console.log("[PWA:SW] Registered ./sw.js"))
+          .catch((err) => console.error("[PWA:SW] Registration failed", err));
+      });
+    }
+
+    const form = document.getElementById("lead-form");
+    const feedback = document.getElementById("form-feedback");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      const record = await enqueueInquiry(data);
+      const syncRes = await flushQueuedInquiries(APP_CONFIG.endpoints.inquiriesUrl);
+      await refreshStatusUI();
+
+      feedback.classList.add("show");
+      feedback.textContent = syncRes.flushed > 0
+        ? `Inquiry submitted and synced (Ref: ${record.traceId}).`
+        : `Inquiry saved offline on this device (Ref: ${record.traceId}). It will sync automatically once connected.`;
+      form.reset();
+    });
+  </script>
+</body>
+</html>
